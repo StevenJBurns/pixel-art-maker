@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+
+}
+
+body {
+  font-family: Futura;
+  background-color: #555555;
+  display: table;
+}
+
+header {
+  padding: 16px;
+  color: #EEEEEE;
+  background-color: #0F0F0F;
+  text-align: center;
+  display: table-row;
+}
+
+header h1 {
+  text-align: center;
+  background-color: transparent;
+  display: block;
+}
+
+nav {
+  text-align: center;
+  display: table-row;
+}
+
+#mainContainer {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-width: 2px;
+  border-color: #999999;
+  background: #333333;
+  text-align: center;
+  display: table;
+}
+
+#mainContainer > div {
+  height: 100%;
+  padding: 16px;
+}
+
+#divColorSelect {
+  width: 480px;
+  text-align: center;
+  vertical-align: top;
+  background-color: #777777;
+  display: table-cell;
+}
+
+#divGrid {
+  text-align: center;
+  vertical-align: middle;
+  background-color: #AAAAAA;
+  display: table-cell;
+}
+
+#divPreview {
+  width: 256px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #777777;
+  display: table-cell;
+}
+
+.row {
+  margin: 0px;
+}
+
+.cell {
+  margin: 0px 1px;
+  height: 16px;
+  width: 16px;
+  border-width: 1px;
+  border-color: #AAAAAA;
+  background-color: #DDDDDD;
+  border-style: solid;
+  display: inline-block;
+}
+
+.colorSelector{
+  display: inline-block;
+}
+
+.color-button {
+  height: 32px;
+  width: 32px;
+  margin: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+footer {
+  height: 1px;
+  padding: 16px;
+  text-align: center;
+  color: #EEEEEE;
+  background-color: #1F1F1F;
+  display: table-row;
+}
