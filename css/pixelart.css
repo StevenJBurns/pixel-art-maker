@@ -50,7 +50,7 @@ nav {
 }
 
 #divColorSelect {
-  width: 480px;
+  width: 800px;
   text-align: center;
   vertical-align: top;
   background-color: #777777;
@@ -61,14 +61,6 @@ nav {
   text-align: center;
   vertical-align: middle;
   background-color: #AAAAAA;
-  display: table-cell;
-}
-
-#divPreview {
-  width: 256px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #777777;
   display: table-cell;
 }
 
@@ -92,9 +84,9 @@ nav {
 }
 
 .color-button {
-  height: 32px;
-  width: 32px;
-  margin: 4px;
+  height: 28px;
+  width: 28px;
+  margin: 2px;
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;

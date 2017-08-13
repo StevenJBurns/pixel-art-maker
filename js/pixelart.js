@@ -57,21 +57,22 @@ function longerInt(i){
 function createColorPalette(paletteGroup){
   let divColorSelect = document.getElementById('divColorSelect');
 
-  for (let color in paletteGroup){
-    let divColor = document.createElement('div');
-    divColor.id = "div" + color;
-    divColor.className += "color-button";
-    divColor.style.backgroundColor = color;
-    divColor.setAttribute("title", color);
-    divColorSelect.appendChild(divColor);
-  }
-
   for (let groupName in colorGroups){
     let divColorGroup = document.createElement("div");
     let h4GroupName = document.createElement("h4");
 
+    h4GroupName.innerText = groupName;
+    divColorGroup.appendChild(h4GroupName);
+
     for(let color of colorGroups[groupName]){
+      let divColor = document.createElement('div');
+      divColor.id = "div" + color;
+      divColor.className += "color-button";
+      divColor.style.backgroundColor = color;
+      divColor.setAttribute("title", color);
+      divColorGroup.appendChild(divColor);
     }
+    divColorSelect.appendChild(divColorGroup);
   }
 }
 
