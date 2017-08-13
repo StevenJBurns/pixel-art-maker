@@ -9,6 +9,8 @@ html {
 }
 
 body {
+  height: 100%;
+  width: 100%;
   font-family: Futura;
   background-color: #555555;
   display: table;
@@ -26,11 +28,6 @@ header h1 {
   text-align: center;
   background-color: transparent;
   display: block;
-}
-
-nav {
-  text-align: center;
-  display: table-row;
 }
 
 #mainContainer {
@@ -79,14 +76,28 @@ nav {
   display: inline-block;
 }
 
-.colorSelector{
-  display: inline-block;
+#divCurrentColor {
+  height: 40px;
+  width: 144px;
+  margin: auto;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: black;
+  background-color: Gray;
+  display: table;
 }
 
-.color-button {
+#spanCurrentColor {
+  margin: auto;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.palette-color-button {
   height: 28px;
   width: 28px;
-  margin: 2px;
+  margin: 1px;
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;

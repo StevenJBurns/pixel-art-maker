@@ -1,13 +1,4 @@
-let colorGroupGrey = {
-  "Gainsboro" : "#DCDCDC",
-  "LightGray" : "#D3D3D3",
-  "Silver" : "#C0C0C0",
-  "DarkGray" : "#A9A9A9",
-  "Gray" : "#808080",
-  "DimGray" : "#696969",
-  "SlateGray" : "#708090",
-  "Black" : "#000000",
-};
+
 
 let colorGroups = {
   "Pink": ["Pink", "LightPink", "HotPink", "DeepPink", "PaleVioletRed", "MediumVioletRed"],
@@ -24,7 +15,7 @@ let colorGroups = {
 }
 
 createPixelGrid(24,24);
-createColorPalette(colorGroupGrey);
+createColorPalette();
 
 function createPixelGrid(rows, cols){
   let divGrid = document.getElementById('divGrid');
@@ -39,6 +30,7 @@ function createPixelGrid(rows, cols){
       cell.id = "cell" + longerInt(i);
       cell.className += "cell";
       divRow.appendChild(cell);
+      cell.addEventListener("click", handleCellClick);
       i++
     }
     divGrid.appendChild(divRow);
@@ -61,25 +53,32 @@ function createColorPalette(paletteGroup){
     let divColorGroup = document.createElement("div");
     let h4GroupName = document.createElement("h4");
 
-    h4GroupName.innerText = groupName;
-    divColorGroup.appendChild(h4GroupName);
+    //h4GroupName.innerText = groupName;
+    //divColorGroup.appendChild(h4GroupName);
 
     for(let color of colorGroups[groupName]){
       let divColor = document.createElement('div');
       divColor.id = "div" + color;
-      divColor.className += "color-button";
+      divColor.className += "palette-color-button";
       divColor.style.backgroundColor = color;
       divColor.setAttribute("title", color);
       divColorGroup.appendChild(divColor);
+      divColor.addEventListener("click", handlePaletteColorSelect);
     }
     divColorSelect.appendChild(divColorGroup);
   }
 }
 
-function attachEventHandlers(){
+function handlePaletteColorSelect(){
+  let divCurrentColor = document.getElementById("divCurrentColor");
+  let spanCurrentColor = document.getElementById("spanCurrentColor");
 
+  divCurrentColor.style.backgroundColor = this.style.backgroundColor;
+  spanCurrentColor.innerHTML = this.style.backgroundColor;
 }
 
-function paintCell(){
+function handleCellClick(){
+  let divCurrentColor = document.getElementById("divCurrentColor");
 
+  this.style.backgroundColor = divCurrentColor.style.backgroundColor
 }
