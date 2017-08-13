@@ -57,7 +57,7 @@ function longerInt(i){
 function createColorPalette(paletteGroup){
   let divColorSelect = document.getElementById('divColorSelect');
 
-  for (color in paletteGroup){
+  for (let color in paletteGroup){
     let divColor = document.createElement('div');
     divColor.id = "div" + color;
     divColor.className += "color-button";
