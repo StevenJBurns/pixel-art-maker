@@ -21,7 +21,7 @@ createPixelGrid(32,32);
 
 
 function createColorPalette(paletteGroup){
-  let divColorSelect = document.getElementById('divColorSelect');
+  let divW3C = document.getElementById('divW3C');
 
   for (let groupName in colorGroups){
     let divColorGroup = document.createElement("div");
@@ -35,7 +35,7 @@ function createColorPalette(paletteGroup){
       divColorGroup.appendChild(divColor);
       divColor.addEventListener("click", handlePaletteColorSelect);
     }
-    divColorSelect.appendChild(divColorGroup);
+    divW3C.appendChild(divColorGroup);
   }
 }
 

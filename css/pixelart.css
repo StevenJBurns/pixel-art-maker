@@ -30,6 +30,14 @@ header h1 {
   display: table-cell;
 }
 
+a, a:visited {
+  color: white;
+}
+
+hr {
+  margin: 8px 16px;
+}
+
 #mainContainer {
   height: 100%;
   width: 100%;
@@ -53,7 +61,7 @@ header h1 {
   display: table-cell;
 }
 
-#divGrid {
+#divPaintArea {
   text-align: center;
   vertical-align: middle;
   background-color: #AAAAAA;
