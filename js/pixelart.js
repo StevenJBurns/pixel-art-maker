@@ -1,22 +1,23 @@
 
 
 const colorGroups = {
-  "Pink": ["Pink", "LightPink", "HotPink", "DeepPink", "PaleVioletRed", "MediumVioletRed"],
-  "Purple": ["Lavender", "Thistle", "Plum", "Orchid", "Violet", "Fuchsia", "Magenta", "MediumOrchid", "DarkOrchid", "DarkViolet", "BlueViolet", "DarkMagenta", "Purple", "MediumPurple", "MediumSlateBlue", "SlateBlue", "DarkSlateBlue", "Indigo"],
-  "Red": ["LightSalmon", "Salmon", "DarkSalmon", "LightCoral", "IndianRed", "Crimson", "Red", "FireBrick", "DarkRed"],
-  "Orange": ["Orange", "DarkOrange", "Coral", "Tomato", "OrangeRed"],
-  "Yellow": ["Gold", "Yellow", "LightYellow", "LemonChiffon", "LightGoldenRodYellow", "PapayaWhip", "Moccasin", "PeachPuff", "PaleGoldenRod", "Khaki", "DarkKhaki"],
-  "Green": ["GreenYellow", "Chartreuse", "LawnGreen", "Lime", "LimeGreen", "PaleGreen", "LightGreen", "MediumSpringGreen", "SpringGreen", "MediumSeaGreen", "SeaGreen", "ForestGreen", "Green", "DarkGreen", "YellowGreen", "OliveDrab", "DarkOliveGreen", "MediumAquaMarine", "DarkSeaGreen", "LightSeaGreen", "DarkCyan", "Teal"],
-  "Cyan": ["Aqua", "Cyan", "LightCyan", "PaleTurquoise", "Aquamarine", "Turquoise", "MediumTurquoise", "DarkTurquoise"],
-  "Blue": ["CadetBlue", "SteelBlue", "LightSteelBlue", "LightBlue", "PowderBlue", "LightSkyBlue", "SkyBlue", "CornflowerBlue", "DeepSkyBlue", "DodgerBlue", "RoyalBlue", "Blue", "MediumBlue", "DarkBlue", "Navy", "MidnightBlue"],
-  "Brown": ["Cornsilk", "BlanchedAlmond", "Bisque", "NavajoWhite", "Wheat", "BurlyWood", "Tan", "RosyBrown", "SandyBrown", "GoldenRod", "DarkGoldenRod", "Peru", "Chocolate", "Olive", "SaddleBrown", "Sienna", "Brown", "Maroon"],
-  "White": ["White", "Snow", "HoneyDew", "MintCream", "Azure", "AliceBlue", "GhostWhite", "WhiteSmoke", "SeaShell", "Beige", "OldLace", "FloralWhite", "Ivory", "AntiqueWhite", "Linen", "LavenderBlush", "MistyRose"],
-  "Grey": ["Gainsboro", "LightGray", "Silver", "DarkGray", "DimGray", "Gray", "LightSlateGray", "SlateGray", "DarkSlateGray", "Black"]
+  "Pink": [ "SeaShell", "AntiqueWhite", "LavenderBlush", "MistyRose", "Pink", "LightPink", "HotPink", "PaleVioletRed", "Fuchsia", "Magenta","DeepPink", "MediumVioletRed", "DarkMagenta", "Purple"],
+  "Purple": ["Lavender", "Thistle", "Plum", "Violet", "Orchid", "MediumOrchid", "DarkOrchid", "DarkViolet", "BlueViolet", "MediumPurple", "MediumSlateBlue", "SlateBlue", "DarkSlateBlue", "Indigo"],
+  "Red": ["LightSalmon", "DarkSalmon", "Salmon", "LightCoral", "IndianRed", "Red", "Crimson", "FireBrick", "DarkRed", "Maroon", "Brown", "OrangeRed", "Tomato", "Coral"],
+  "Yellow": ["DarkOrange", "Orange", "Gold", "Yellow", "LightYellow", "Linen", "LemonChiffon", "LightGoldenRodYellow", "Cornsilk", "PapayaWhip", "Moccasin", "PeachPuff", "PaleGoldenRod", "Khaki"],
+  "Green1": ["FloralWhite", "Ivory", "Beige", "GreenYellow", "Chartreuse", "LawnGreen", "Lime", "LimeGreen", "PaleGreen", "LightGreen", "MediumSpringGreen", "SpringGreen", "MediumSeaGreen", "SeaGreen"],
+  "Green2": ["ForestGreen", "Green", "DarkGreen", "YellowGreen", "DarkKhaki", "OldLace", "OliveDrab", "Olive", "DarkOliveGreen", "MediumAquaMarine", "DarkSeaGreen", "LightSeaGreen", "DarkCyan", "Teal"],
+  "Cyan": ["MintCream", "Azure", "HoneyDew", "AliceBlue", "LightCyan", "PaleTurquoise", "Aquamarine", "Aqua", "Cyan", "Turquoise", "MediumTurquoise", "DarkTurquoise", "DeepSkyBlue", "DodgerBlue"],
+  "Blue": ["CadetBlue", "LightSteelBlue", "LightBlue", "PowderBlue", "LightSkyBlue", "SkyBlue", "CornflowerBlue", "SteelBlue", "RoyalBlue", "Blue", "MediumBlue", "DarkBlue", "Navy", "MidnightBlue"],
+  "Brown": ["BlanchedAlmond", "Bisque", "NavajoWhite", "Wheat", "BurlyWood", "Tan", "RosyBrown", "SandyBrown", "GoldenRod", "DarkGoldenRod", "Peru", "Chocolate", "SaddleBrown", "Sienna"],
+  "Grey": ["White","WhiteSmoke", "GhostWhite", "Snow", "Gainsboro", "LightGray", "Silver", "DarkGray", "LightSlateGray", "SlateGray", "Gray", "DimGray", "DarkSlateGray", "Black"]
 } // All 140 named CSS colors as per the W3C organized into general color groups
 
+let isMouseDown;
+
 createColorPalette();
-setInitialCurrentColor("red");
-createPixelGrid(24,24);
+setInitialCurrentColor("orange");
+createPixelGrid(32,32);
 
 
 function createColorPalette(paletteGroup){
@@ -67,7 +68,10 @@ function createPixelGrid(rows, cols){
       cell.id = "cell" + longerInt(i);
       cell.className += "cell";
       cell.addEventListener("click", handleCellClick);
-      cell.addEventListener("mouseenter", handleCellMouseEnter)
+      cell.addEventListener("mousedown", handleCellMouseDown);
+      cell.addEventListener("mouseup", handleCellMouseUp);
+      cell.addEventListener("mouseenter", handleCellMouseEnter);
+
       divRow.appendChild(cell);
       i++
     }
@@ -90,11 +94,22 @@ function handleCellClick(){
   this.style.backgroundColor = divCurrentColor.style.backgroundColor
 }
 
-function handleCellMouseEnter(e){
+function handleCellMouseDown(){
+  isMouseDown = true;
+
+  let divCurrentColor = document.getElementById("divCurrentColor");
+
+  this.style.backgroundColor = divCurrentColor.style.backgroundColor
+}
+
+function handleCellMouseUp(){
+  isMouseDown = false;
+}
+
+function handleCellMouseEnter(){
   let divCurrentColor = document.getElementById("divCurrentColor")
 
-  if (this.mousedown == true){
+  if (isMouseDown == true){
     this.style.backgroundColor = divCurrentColor.style.backgroundColor;
   }
-  console.log(this.id);
 }
